@@ -4,7 +4,7 @@
 ### Bartłomiej Brzoza
 
 # Do zrobienia 25%:
-- ~~działające demo gry~~
-- login/rejestrownie użytkowników
-- rozbicie głównego kodu na mniejsze
-- dostosowanie wyglądu
+- [x] działające demo gry
+- [ ] login/rejestrownie użytkowników
+- [ ] rozbicie głównego kodu na mniejsze
+- [ ] dostosowanie wyglądu
