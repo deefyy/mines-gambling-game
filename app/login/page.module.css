@@ -1,0 +1,113 @@
+/* 🎀 Stylowanie strony logowania */
+
+/* 🌈 Tło strony */
+.container {
+    position: relative;
+    transition: opacity 0.5s ease;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Pastelowy gradient */
+    background-size: cover; /* Dopasowanie tła */
+    background-attachment: fixed; /* Tło nie przewija się */
+    color: #333;
+    text-align: center;
+    padding: 40px 20px;
+    min-height: 100vh; /* Pełna wysokość ekranu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+.fadeOut {
+    opacity: 0;
+  }
+  
+  .loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+/* 🧾 Wrapper na formularz */
+.formWrapper {
+    background: rgba(255, 255, 255, 0.95); /* Delikatne białe tło */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtelny cień */
+    width: 100%;
+    max-width: 400px; /* Ograniczamy szerokość */
+}
+
+/* 📝 Stylowanie formularza */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Odstępy między elementami */
+}
+
+/* 🏷️ Stylowanie etykiet */
+.label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555; /* Stonowany szary */
+    text-align: left;
+}
+
+/* 🔢 Stylowanie inputów */
+.inputField {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ff758c; /* Różowa ramka */
+    border-radius: 8px;
+    background: #ffffff; /* Białe wnętrze */
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.inputField:focus {
+    border-color: #ff7eb3; /* Intensywny róż przy aktywacji */
+    box-shadow: 0 0 8px #ff7eb3;
+    outline: none; /* Usuwamy domyślną obwódkę */
+}
+
+/* 🎀 Stylowanie przycisków */
+.btn {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3); /* Gradient różowy */
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    transform: translateY(-2px); /* Efekt kliknięcia */
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
