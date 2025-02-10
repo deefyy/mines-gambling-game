@@ -163,6 +163,7 @@ export default function HazardSaperPage() {
     setRevealedCount(newRevealedCount);
 
     const newWinAmount = betAmount * (Math.pow(bombMultiplier, newRevealedCount) - 1);
+    // Tu nadajemy postać string (2 miejsca po przecinku)
     setWinAmount(newWinAmount.toFixed(2));
     setBoard(newBoard);
   };
@@ -172,7 +173,7 @@ export default function HazardSaperPage() {
   // ------------------------------------------------------------------
   const handleCashOut = async () => {
     if (!gameOver && revealedCount > 0) {
-      const cashOut = parseFloat(winAmount);
+      const cashOut = parseFloat(winAmount); // bo winAmount mamy jako string
       const newBalance = balance + cashOut;
       await updateUserBalance(newBalance);
       setGameOver(true);
@@ -221,7 +222,8 @@ export default function HazardSaperPage() {
     return (
       <div className={styles.container}>
         <h1>Hazardowy Saper Emu! (Wonderhoy!☆)</h1>
-        <p>Twoje aktualne saldo: <strong>{balance} zł</strong></p>
+        {/* Zaokrąglamy saldo do 2 miejsc, żeby zawsze było np. 50.00 */}
+        <p>Twoje aktualne saldo: <strong>{Number(balance).toFixed(2)} zł</strong></p>
 
         <form onSubmit={startOrNewGame} className={styles.startForm}>
           <div className={styles.formGroup}>
@@ -237,6 +239,8 @@ export default function HazardSaperPage() {
           </div>
           <div className={styles.formGroup}>
             <label>Stawka (zł):</label>
+            {/* Również wyświetlamy z 2 miejscami - ale pamiętaj, inputValue to string,
+                więc Number(...) może być potrzebne np. w podglądzie. */}
             <input
               type="number"
               min="1"
@@ -257,15 +261,18 @@ export default function HazardSaperPage() {
       <div className={styles.menu}>
         <h1>Hazardowy Saper Emu! (Wonderhoy!☆)</h1>
         <div className={styles.info}>
-          <p>Stawka: <strong>{betAmount} zł</strong></p>
+          {/* Stawka zawsze jako liczba z 2 miejscami */}
+          <p>Stawka: <strong>{Number(betAmount).toFixed(2)} zł</strong></p>
           <p>Liczba bomb: <strong>{bombCount}</strong></p>
           <p>Odkryte pola: <strong>{revealedCount}</strong></p>
-          <p>Wygrana: <strong>{winAmount} zł</strong></p>
-          <p>Twoje saldo: <strong>{balance} zł</strong></p>
+          {/* Wygrana już mamy w stanie jako string z 2 miejscami, ale dla pewności można jeszcze raz owinąć Number(...).toFixed(2) */}
+          <p>Wygrana: <strong>{Number(winAmount).toFixed(2)} zł</strong></p>
+          {/* Zaokrąglamy saldo do 2 miejsc */}
+          <p>Twoje saldo: <strong>{Number(balance).toFixed(2)} zł</strong></p>
           {gameOver ? (
             <p className={styles.gameOver}>
               Gra zakończona! {revealedCount > 0
-                ? `Twoja wygrana to: ${winAmount} zł`
+                ? `Twoja wygrana to: ${Number(winAmount).toFixed(2)} zł`
                 : "Trafiłeś bombę, brak wygranej!"}
             </p>
           ) : (
