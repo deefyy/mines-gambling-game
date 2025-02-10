@@ -1,0 +1,83 @@
+/* 🎀 Styl Wonderhoyowy dla strony logowania */
+
+/* 🌈 Tło strony */
+body {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Pastelowy gradient */
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* 🌟 Formularz logowania */
+form {
+    background-color: rgba(255, 255, 255, 0.95); /* Delikatne białe tło */
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 📝 Etykiety formularza */
+label {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* 🔢 Pola wejściowe */
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: 2px solid #ff758c; /* Różowe obramowanie */
+    border-radius: 8px;
+    background: #ffffff; /* Białe wnętrze */
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #ff7eb3; /* Intensywny róż przy aktywacji */
+    box-shadow: 0 0 8px #ff7eb3;
+}
+
+/* 🎀 Przyciski */
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3); /* Gradient różowy */
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* 🌟 Efekt po najechaniu */
+button:hover {
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* 🧩 Odstępy między przyciskami */
+button + button {
+    margin-top: 10px;
+}
