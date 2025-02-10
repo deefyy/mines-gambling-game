@@ -6,39 +6,57 @@ import styles from './page.module.css';
 
 export default function LoginPage() {
   const [errorMsg, setErrorMsg] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
 
-  // Handler logowania – po sukcesie przeładujemy stronę!
+  // Ustaw opóźnienie (w milisekundach) na efekt fade-out przed przeładowaniem
+  const FADE_OUT_DELAY = 500;
+
   async function handleLogin(e) {
     e.preventDefault();
     setErrorMsg('');
+    setLoading(true);
+    setFadeOut(true); // Rozpoczynamy animację zanikania!
     const formData = new FormData(e.target);
     try {
       await login(formData);
-      // Wymuś pełne przeładowanie strony – jak eksplozja fajerwerków!
-      window.location.href = '/saper';
+      // Poczekaj, aż fade-out zakończy się, a następnie przeładuj stronę
+      setTimeout(() => {
+        window.location.href = '/saper';
+      }, FADE_OUT_DELAY);
     } catch (error) {
       setErrorMsg(error.message || 'Błąd logowania');
+      setLoading(false);
+      setFadeOut(false);
     }
   }
 
-  // Handler rejestracji – podobnie jak przy logowaniu, pełne przeładowanie strony po sukcesie!
   async function handleSignup(e) {
     e.preventDefault();
     setErrorMsg('');
-    // Uzyskujemy formularz poprzez właściwość .form przycisku
+    setLoading(true);
+    setFadeOut(true);
     const formData = new FormData(e.target.form);
     try {
       await signup(formData);
-      window.location.href = '/saper';
+      setTimeout(() => {
+        window.location.href = '/saper';
+      }, FADE_OUT_DELAY);
     } catch (error) {
       setErrorMsg(error.message || 'Błąd rejestracji');
+      setLoading(false);
+      setFadeOut(false);
     }
   }
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${fadeOut ? styles.fadeOut : ''}`}>
+      {loading && (
+        <div className={styles.loadingOverlay}>
+          <div className={styles.spinner}></div>
+        </div>
+      )}
       <div className={styles.formWrapper}>
-        {/* Obsługa logowania przez onSubmit */}
         <form className={styles.form} onSubmit={handleLogin}>
           <label htmlFor="email" className={styles.label}>
             Email:
@@ -64,7 +82,6 @@ export default function LoginPage() {
           <button type="submit" className={styles.btn}>
             Log in
           </button>
-          {/* Przyciski rejestracji mają typ "button", aby nie wywoływać onSubmit formularza */}
           <button type="button" onClick={handleSignup} className={styles.btn}>
             Sign up
           </button>
