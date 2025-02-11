@@ -221,34 +221,24 @@ export default function HazardSaperPage() {
   if (!gameStarted) {
     return (
       <div className={styles.container}>
-        <h1>Hazardowy Saper Emu! (Wonderhoy!☆)</h1>
-        {/* Zaokrąglamy saldo do 2 miejsc, żeby zawsze było np. 50.00 */}
-        <p>Twoje aktualne saldo: <strong>{Number(balance).toFixed(2)} zł</strong></p>
+        <div className={styles.startWrapper}>
 
-        <form onSubmit={startOrNewGame} className={styles.startForm}>
-          <div className={styles.formGroup}>
-            <label>Liczba bomb (1 - {boardSize - 1}):</label>
-            <input
-              type="number"
-              min="1"
-              max={boardSize - 1}
-              value={inputBombCount}
-              onChange={(e) => setInputBombCount(e.target.value)}
-              className={styles.inputField}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label>Stawka (zł):</label>
-            <input
-              type="number"
-              min="1"
-              value={inputBet}
-              onChange={(e) => setInputBet(e.target.value)}
-              className={styles.inputField}
-            />
-          </div>
-          <button type="submit" className={styles.btn}>Rozpocznij grę</button>
-        </form>
+          <form onSubmit={startOrNewGame} className={styles.startForm}>
+            <h1 className={styles.title}>Hazardowy Saper Emu! (Wonderhoy!☆)</h1>
+            <p className={styles.balance}>
+              Twoje aktualne saldo: <strong>{Number(balance).toFixed(2)} zł</strong>
+            </p>
+            <div className={styles.formGroup}>
+              <label className={styles.label}>Liczba bomb (1 - {boardSize - 1}):</label>
+              <input type="number" min="1" max={boardSize - 1} value={inputBombCount} onChange={(e) => setInputBombCount(e.target.value)} className={styles.inputField} />
+            </div>
+            <div className={styles.formGroup}>
+              <label className={styles.label}>Stawka (zł):</label>
+              <input type="number" min="1" value={inputBet} onChange={(e) => setInputBet(e.target.value)} className={styles.inputField} />
+            </div>
+            <button type="submit" className={styles.btn}>Rozpocznij grę</button>
+          </form>
+        </div>
       </div>
     );
   }
@@ -257,13 +247,13 @@ export default function HazardSaperPage() {
   return (
     <div className={styles.mainWrapper}>
       <div className={styles.menu}>
-        <h1>Hazardowy Saper Emu! (Wonderhoy!☆)</h1>
+        <h1>Hazardowy Saper Emu! Wonderhoy!</h1>
         <div className={styles.info}>
-          <p>Stawka: <strong>{Number(betAmount).toFixed(2)} zł</strong></p>
-          <p>Liczba bomb: <strong>{bombCount}</strong></p>
-          <p>Odkryte pola: <strong>{revealedCount}</strong></p>
-          <p>Wygrana: <strong>{Number(winAmount).toFixed(2)} zł</strong></p>
-          <p>Twoje saldo: <strong>{Number(balance).toFixed(2)} zł</strong></p>
+          <p>💰 Stawka: <strong>{Number(betAmount).toFixed(2)} zł</strong></p>
+          <p>💣 Liczba bomb: <strong>{bombCount}</strong></p>
+          <p>📍 Odkryte pola: <strong>{revealedCount}</strong></p>
+          <p>🏆 Wygrana: <strong>{Number(winAmount).toFixed(2)} zł</strong></p>
+          <p>💳 Twoje saldo: <strong>{Number(balance).toFixed(2)} zł</strong></p>
           {gameOver ? (
             <p className={styles.gameOver}>
               Gra zakończona! {revealedCount > 0
