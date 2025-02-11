@@ -46,7 +46,7 @@ export default function Navbar() {
             <li>
               <form action="/auth/signout" method="POST">
                 <button className={styles.logoutButton} type="submit">
-                  🗿Wyloguj
+                  🗿 Wyloguj
                 </button>
               </form>
             </li>
