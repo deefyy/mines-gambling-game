@@ -239,8 +239,6 @@ export default function HazardSaperPage() {
           </div>
           <div className={styles.formGroup}>
             <label>Stawka (zł):</label>
-            {/* Również wyświetlamy z 2 miejscami - ale pamiętaj, inputValue to string,
-                więc Number(...) może być potrzebne np. w podglądzie. */}
             <input
               type="number"
               min="1"
@@ -261,13 +259,10 @@ export default function HazardSaperPage() {
       <div className={styles.menu}>
         <h1>Hazardowy Saper Emu! (Wonderhoy!☆)</h1>
         <div className={styles.info}>
-          {/* Stawka zawsze jako liczba z 2 miejscami */}
           <p>Stawka: <strong>{Number(betAmount).toFixed(2)} zł</strong></p>
           <p>Liczba bomb: <strong>{bombCount}</strong></p>
           <p>Odkryte pola: <strong>{revealedCount}</strong></p>
-          {/* Wygrana już mamy w stanie jako string z 2 miejscami, ale dla pewności można jeszcze raz owinąć Number(...).toFixed(2) */}
           <p>Wygrana: <strong>{Number(winAmount).toFixed(2)} zł</strong></p>
-          {/* Zaokrąglamy saldo do 2 miejsc */}
           <p>Twoje saldo: <strong>{Number(balance).toFixed(2)} zł</strong></p>
           {gameOver ? (
             <p className={styles.gameOver}>

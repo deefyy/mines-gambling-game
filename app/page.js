@@ -12,7 +12,7 @@ export default function HomePage() {
           Gotowy na ekscytujące przygody pełne zabawy? 🎈 Wybierz swoją przygodę i zanurz się w świecie emocji! Wonderhoy!☆
         </p>
         <div className={styles.links}>
-          <Link href="/saper" className={styles.gameLink}>
+          <Link href="/login" className={styles.gameLink}>
             💣 Zagraj w Hazardowego Sapera!
           </Link>
         </div>

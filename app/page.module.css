@@ -1,56 +1,37 @@
 .container {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  background-size: cover;
+  background-attachment: fixed;
+  color: #333;
   text-align: center;
-  padding: 20px;
-  background: linear-gradient(135deg, #ff99cc, #ff66cc);
-  min-height: calc(100vh - 50px);
-}
-
-.navbar {
-  background-color: #ff3385;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.navbar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 20px;
-}
-
-.navbar ul li {
-  display: inline;
-}
-
-.navbar ul li a {
-  color: white;
-  font-size: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.navbar ul li a:hover {
-  color: yellow;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
 }
 
 .main {
-  color: white;
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
   border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  text-align: center;
 }
 
 .title {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: bold;
-  text-shadow: 2px 2px #ff0055;
+  color: #ff3366;
+  margin-bottom: 15px;
 }
 
 .description {
-  font-size: 20px;
+  font-size: 18px;
+  color: #555;
   margin-top: 10px;
 }
 
@@ -60,16 +41,38 @@
 
 .gameLink {
   display: inline-block;
-  background-color: #ff0055;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
   color: white;
-  padding: 15px 25px;
+  padding: 15px 30px;
   font-size: 22px;
   font-weight: bold;
   border-radius: 10px;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .gameLink:hover {
-  background-color: #ff3385;
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .main {
+      padding: 30px;
+      max-width: 90%;
+  }
+
+  .title {
+      font-size: 30px;
+  }
+
+  .description {
+      font-size: 16px;
+  }
+
+  .gameLink {
+      font-size: 18px;
+      padding: 12px 25px;
+  }
 }
