@@ -1,6 +1,3 @@
-/* 🎀 Stylowanie formularza konta */
-
-/* 🌈 Tło strony */
 .container {
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     background-size: cover;
@@ -8,14 +5,13 @@
     color: #333;
     text-align: center;
     padding: 40px 20px;
-    min-height: 100vh;
+    min-height: calc(100vh - 50px);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Arial', sans-serif;
 }
 
-/* 🧾 Wrapper na formularz */
 .formWrapper {
     background: rgba(255, 255, 255, 0.95);
     padding: 30px;
@@ -25,7 +21,6 @@
     max-width: 400px;
 }
 
-/* 📝 Stylowanie pól formularza */
 .formGroup {
     display: flex;
     flex-direction: column;
@@ -33,7 +28,6 @@
     margin-bottom: 20px;
 }
 
-/* 🏷️ Etykiety */
 .label {
     font-size: 16px;
     font-weight: bold;
@@ -41,7 +35,6 @@
     text-align: left;
 }
 
-/* 🔢 Inputy */
 .inputField {
     padding: 10px;
     font-size: 16px;
@@ -58,7 +51,6 @@
     outline: none;
 }
 
-/* 🎀 Stylowanie przycisków */
 .btn {
     padding: 12px 25px;
     font-size: 18px;
@@ -81,7 +73,6 @@
     opacity: 0.5;
 }
 
-/* 🏳️‍🌈 Specjalny przycisk do wylogowania */
 .signOut {
     background: linear-gradient(135deg, #ff4b5c, #ff758c);
 }

@@ -9,7 +9,6 @@ export default function AccountForm({ user }) {
   const [loading, setLoading] = useState(true);
   const [fullname, setFullname] = useState(null);
   const [username, setUsername] = useState(null);
-  const [website, setWebsite] = useState(null);
   const [avatar_url, setAvatarUrl] = useState(null);
 
   const getProfile = useCallback(async () => {
@@ -18,7 +17,7 @@ export default function AccountForm({ user }) {
 
       const { data, error, status } = await supabase
         .from('profiles')
-        .select(`full_name, username, website, avatar_url`)
+        .select(`full_name, username, avatar_url`)
         .eq('id', user?.id)
         .single();
 
@@ -29,7 +28,6 @@ export default function AccountForm({ user }) {
       if (data) {
         setFullname(data.full_name);
         setUsername(data.username);
-        setWebsite(data.website);
         setAvatarUrl(data.avatar_url);
       }
     } catch (error) {
@@ -43,7 +41,7 @@ export default function AccountForm({ user }) {
     getProfile();
   }, [user, getProfile]);
 
-  async function updateProfile({ username, website, avatar_url }) {
+  async function updateProfile({ username, avatar_url }) {
     try {
       setLoading(true);
 
@@ -51,7 +49,6 @@ export default function AccountForm({ user }) {
         id: user?.id,
         full_name: fullname,
         username,
-        website,
         avatar_url,
         updated_at: new Date().toISOString(),
       });
@@ -97,23 +94,11 @@ export default function AccountForm({ user }) {
             className={styles.inputField}
           />
         </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="website" className={styles.label}>
-            Website
-          </label>
-          <input
-            id="website"
-            type="url"
-            value={website || ''}
-            onChange={(e) => setWebsite(e.target.value)}
-            className={styles.inputField}
-          />
-        </div>
 
         <div className={styles.formGroup}>
           <button
             className={styles.btn}
-            onClick={() => updateProfile({ fullname, username, website, avatar_url })}
+            onClick={() => updateProfile({ fullname, username, avatar_url })}
             disabled={loading}
           >
             {loading ? 'Loading ...' : 'Update'}
