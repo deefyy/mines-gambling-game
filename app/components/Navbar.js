@@ -39,20 +39,20 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <ul>
         <li><Link href="/">🏠 Strona Główna</Link></li>
-        <li><Link href="/saper">💣 Saper</Link></li>
         {user ? (
           <>
-            <li><Link href="/account">Konto</Link></li>
+            <li><Link href="/saper">💣 Saper</Link></li>
+            <li><Link href="/account">😎Konto</Link></li>
             <li>
               <form action="/auth/signout" method="POST">
                 <button className={styles.logoutButton} type="submit">
-                  Wyloguj
+                  🗿Wyloguj
                 </button>
               </form>
             </li>
           </>
         ) : (
-          <li><Link href="/login">Zaloguj</Link></li>
+          <li><Link href="/login">🔑Zaloguj</Link></li>
         )}
       </ul>
     </nav>
