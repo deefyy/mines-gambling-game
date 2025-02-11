@@ -1,16 +1,13 @@
-/* 🎀 Stylowanie strony logowania */
-
-/* 🌈 Tło strony */
 .container {
     position: relative;
     transition: opacity 0.5s ease;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Pastelowy gradient */
-    background-size: cover; /* Dopasowanie tła */
-    background-attachment: fixed; /* Tło nie przewija się */
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    background-size: cover;
+    background-attachment: fixed;
     color: #333;
     text-align: center;
     padding: 40px 20px;
-    min-height: 100vh; /* Pełna wysokość ekranu */
+    min-height: calc(100vh - 50px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,24 +43,22 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-/* 🧾 Wrapper na formularz */
+
 .formWrapper {
-    background: rgba(255, 255, 255, 0.95); /* Delikatne białe tło */
+    background: rgba(255, 255, 255, 0.95);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtelny cień */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px; /* Ograniczamy szerokość */
+    max-width: 400px;
 }
 
-/* 📝 Stylowanie formularza */
 .form {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Odstępy między elementami */
+    gap: 20px;
 }
 
-/* 🏷️ Stylowanie etykiet */
 .label {
     font-size: 16px;
     font-weight: bold;
@@ -72,24 +67,22 @@
     text-align: left;
 }
 
-/* 🔢 Stylowanie inputów */
 .inputField {
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #ff758c; /* Różowa ramka */
+    border: 2px solid #ff758c;
     border-radius: 8px;
-    background: #ffffff; /* Białe wnętrze */
+    background: #ffffff;
     color: #333;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .inputField:focus {
-    border-color: #ff7eb3; /* Intensywny róż przy aktywacji */
+    border-color: #ff7eb3;
     box-shadow: 0 0 8px #ff7eb3;
-    outline: none; /* Usuwamy domyślną obwódkę */
+    outline: none;
 }
 
-/* 🎀 Stylowanie przycisków */
 .btn {
     padding: 12px 25px;
     font-size: 18px;
@@ -104,7 +97,7 @@
 
 .btn:hover {
     background: linear-gradient(135deg, #ff7eb3, #ff758c);
-    transform: translateY(-2px); /* Efekt kliknięcia */
+    transform: translateY(-2px);
 }
 
 .btn:disabled {

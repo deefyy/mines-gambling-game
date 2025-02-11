@@ -1,15 +1,12 @@
-/* 🎀 Emu's Wonderhoyowy styl */
-
-/* 🌈 Tło dla całej strony */
 .container {
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Pastelowy gradient */
-  background-size: cover; /* Tło dopasowuje się do rozmiaru strony */
-  background-attachment: fixed; /* Tło nie przewija się */
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  background-size: cover;
+  background-attachment: fixed;
   color: #333;
   text-align: center;
   padding: 40px 20px;
-  min-height: 100vh; /* Pełna wysokość strony */
-  width: 100%; /* Pełna szerokość strony */
+  min-height: calc(100vh - 50px);
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,48 +14,43 @@
   font-family: 'Arial', sans-serif;
 }
 
-/* 🧱 Wrapper na menu i planszę */
 .mainWrapper {
-  display: flex; /* Ustawiamy kontenery obok siebie */
+  display: flex;
   flex-direction: row;
-  gap: 30px; /* Odstęp między kontenerami */
+  gap: 30px;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  max-width: 1200px; /* Ograniczamy szerokość całej gry */
-  padding: 20px; /* Odstępy po bokach */
-  flex-wrap: wrap; /* 🔥 Responsywność – kontenery przechodzą pod siebie na małych ekranach */
+  max-width: 1200px;
+  padding: 20px;
+  flex-wrap: wrap;
 }
 
-/* 📜 Menu boczne */
 .menu {
-  flex: 0 1 300px; /* Elastyczna szerokość menu */
-  background-color: rgba(255, 255, 255, 0.95); /* Delikatny biały */
+  flex: 0 1 300px;
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: left;
 }
 
-/* 🎯 Plansza gry */
 .board {
-  flex: 1; /* Plansza zajmuje resztę przestrzeni */
-  max-width: 600px; /* Ograniczamy szerokość planszy */
-  background: rgba(255, 255, 255, 0.9); /* Delikatne pastelowe tło */
+  flex: 1;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-/* 🎲 Siatka pól gry */
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Siatka 5 kolumn */
-  gap: 10px; /* Odstęp między polami */
-  width: 100%; /* Plansza zajmuje pełną szerokość kontenera */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  width: 100%;
 }
 
-/* 🎯 Każde pole */
 .cell {
   width: 60px;
   height: 60px;
@@ -67,57 +59,49 @@
   align-items: center;
   font-size: 22px;
   font-weight: bold;
-  background-color: #ffeef2; /* Pastelowy róż */
-  border: 2px solid #ff758c; /* Różowa ramka */
+  background-color: #ffeef2;
+  border: 2px solid #ff758c;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
 
-/* ✨ Efekt po najechaniu */
 .cell:hover {
-  background-color: #ffd6e0; /* Jaśniejszy róż */
-  transform: scale(1.05); /* Powiększenie */
+  background-color: #ffd6e0;
+  transform: scale(1.05);
 }
 
-/* ✅ Odkryte bezpieczne pole */
 .revealedSafe {
-  background: #a8e6cf; /* Pastelowa zieleń */
+  background: #a8e6cf;
   box-shadow: 0 0 10px #a8e6cf;
 }
 
-/* 💣 Odkryta bomba */
 .revealedBomb {
-  background: #ff8b94; /* Pastelowy czerwony */
+  background: #ff8b94;
   box-shadow: 0 0 15px #ff8b94;
 }
 
-/* 🚫 Blokada po zakończeniu gry */
 .disabled {
   cursor: not-allowed;
   opacity: 0.7;
 }
 
-/* 🟢 Status gry */
 .gameStatus, .gameOver {
   margin-top: 10px;
   text-align: center;
   font-weight: bold;
 }
 
-/* 🟢 Wygrana */
 .gameStatus {
   color: #27ae60;
   text-shadow: 0 0 8px #27ae60;
 }
 
-/* 🔴 Przegrana */
 .gameOver {
   color: #e74c3c;
   text-shadow: 0 0 10px #e74c3c;
 }
 
-/* 🎀 Przyciski */
 .btn {
   padding: 12px 25px;
   margin-top: 15px;
@@ -140,7 +124,6 @@
   opacity: 0.5;
 }
 
-/* 📝 Formularz startowy */
 .startForm {
   margin-top: 20px;
   display: flex;
@@ -148,50 +131,47 @@
   gap: 15px;
 }
 
-/* 📜 Pojedyncza sekcja formularza */
 .formGroup {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* 🔢 Pola wejściowe formularza */
 .inputField {
   padding: 10px;
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;
   margin-top: 5px;
-  border: 2px solid #ff758c; /* Różowe obramowanie */
+  border: 2px solid #ff758c;
   border-radius: 8px;
-  background: #ffffff; /* Białe wnętrze */
+  background: #ffffff;
   color: #333;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .inputField:focus {
-  border-color: #ff7eb3; /* Intensywny róż przy aktywacji */
+  border-color: #ff7eb3;
   box-shadow: 0 0 8px #ff7eb3;
 }
 
-/* 🌟 Responsywne style */
 @media (max-width: 768px) {
   .mainWrapper {
-      flex-direction: column; /* Na małych ekranach menu i plansza pod sobą */
-      gap: 20px; /* Mniejszy odstęp */
+      flex-direction: column;
+      gap: 20px;
   }
 
   .menu, .board {
-      max-width: 100%; /* Menu i plansza zajmują całą szerokość */
+      max-width: 100%;
   }
 
   .grid {
-      grid-template-columns: repeat(3, 1fr); /* Mniej kolumn na małych ekranach */
+      grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 480px) {
   .grid {
-      grid-template-columns: repeat(2, 1fr); /* Tylko 2 kolumny na bardzo małych ekranach */
+      grid-template-columns: repeat(2, 1fr);
   }
 }
