@@ -3,8 +3,8 @@
 ### Tomasz Piekarczyk
 ### Bartłomiej Brzoza
 
-# Do zrobienia 25%:
+# Do zrobienia 100%:
 - [x] działające demo gry
-- [ ] login/rejestrownie użytkowników
-- [ ] rozbicie głównego kodu na mniejsze
-- [ ] dostosowanie wyglądu
+- [x] login/rejestrownie użytkowników
+- [x] rozbicie głównego kodu na mniejsze
+- [x] dostosowanie wyglądu
