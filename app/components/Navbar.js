@@ -42,7 +42,7 @@ export default function Navbar() {
         {user ? (
           <>
             <li><Link href="/saper">💣 Saper</Link></li>
-            <li><Link href="/account">😎Konto</Link></li>
+            <li><Link href="/account">😎 Konto</Link></li>
             <li>
               <form action="/auth/signout" method="POST">
                 <button className={styles.logoutButton} type="submit">
@@ -52,7 +52,7 @@ export default function Navbar() {
             </li>
           </>
         ) : (
-          <li><Link href="/login">🔑Zaloguj</Link></li>
+          <li><Link href="/login">🔑 Zaloguj</Link></li>
         )}
       </ul>
     </nav>
