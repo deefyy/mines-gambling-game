@@ -41,8 +41,8 @@ export default function HazardSaperPage() {
   const [revealedCount, setRevealedCount] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
 
-  const [inputBombCount, setInputBombCount] = useState(boardSize - 1);
-  const [inputBet, setInputBet] = useState(100);
+  const [inputBombCount, setInputBombCount] = useState(5);
+  const [inputBet, setInputBet] = useState(10);
 
   // ------------------------------------------------------------------
   // 1. Pobieramy aktualne saldo użytkownika z Supabase
