@@ -24,7 +24,7 @@ export async function login(formData) {
   revalidatePath('/', 'layout');
   return {
     success: true,
-    message: 'Zalogowano pomyślnie! Wonderhoy!☆'
+    message: 'Zalogowano pomyślnie!'
   };
 }
 
