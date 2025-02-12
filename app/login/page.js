@@ -9,26 +9,31 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
 
-  // Ustaw opóźnienie (w milisekundach) na efekt fade-out przed przeładowaniem
+  // Opóźnienie (w milisekundach) dla efektu fade-out
   const FADE_OUT_DELAY = 500;
 
   async function handleLogin(e) {
     e.preventDefault();
     setErrorMsg('');
     setLoading(true);
-    setFadeOut(true); // Rozpoczynamy animację zanikania!
+    setFadeOut(true);
+
     const formData = new FormData(e.target);
-    try {
-      await login(formData);
-      // Poczekaj, aż fade-out zakończy się, a następnie przeładuj stronę
-      setTimeout(() => {
-        window.location.href = '/saper';
-      }, FADE_OUT_DELAY);
-    } catch (error) {
-      setErrorMsg(error.message || 'Błąd logowania');
+    // Wywołujemy login z Server Actions
+    const result = await login(formData);
+
+    if (!result.success) {
+      // Jeśli success to false, wyświetlamy wiadomość z servera!
+      setErrorMsg(result.message);
       setLoading(false);
       setFadeOut(false);
+      return; // Przerywamy dalsze akcje, bo logowanie się nie powiodło
     }
+
+    // Jeśli logowanie się udało, przenosimy użytkownika na /saper
+    setTimeout(() => {
+      window.location.href = '/saper';
+    }, FADE_OUT_DELAY);
   }
 
   async function handleSignup(e) {
@@ -36,17 +41,21 @@ export default function LoginPage() {
     setErrorMsg('');
     setLoading(true);
     setFadeOut(true);
+
+    // Używamy tej samej formData, ale w signup
     const formData = new FormData(e.target.form);
-    try {
-      await signup(formData);
-      setTimeout(() => {
-        window.location.href = '/saper';
-      }, FADE_OUT_DELAY);
-    } catch (error) {
-      setErrorMsg(error.message || 'Błąd rejestracji');
+    const result = await signup(formData);
+
+    if (!result.success) {
+      setErrorMsg(result.message);
       setLoading(false);
       setFadeOut(false);
+      return;
     }
+
+    setTimeout(() => {
+      window.location.href = '/saper';
+    }, FADE_OUT_DELAY);
   }
 
   return (
