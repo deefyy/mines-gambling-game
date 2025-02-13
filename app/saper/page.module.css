@@ -80,7 +80,6 @@
 
 .cell:hover {
   transform: scale(1.05);
-  background-color: #ffd6e0;
 }
 
 .revealedSafe {
